@@ -61,7 +61,8 @@
             chartArea1.AxisY.MajorTickMark.Enabled = false;
             chartArea1.Name = "ca1";
             this.ct.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
+            legend1.Alignment = System.Drawing.StringAlignment.Far;
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
             legend1.Name = "Legend1";
             this.ct.Legends.Add(legend1);
             this.ct.Location = new System.Drawing.Point(6, 23);
@@ -86,7 +87,7 @@
             series2.Name = "Series2";
             this.ct.Series.Add(series1);
             this.ct.Series.Add(series2);
-            this.ct.Size = new System.Drawing.Size(306, 265);
+            this.ct.Size = new System.Drawing.Size(306, 293);
             this.ct.TabIndex = 0;
             this.ct.Text = "ct";
             title1.Name = "Title1";
@@ -96,9 +97,9 @@
             // 
             this.groupBox1.Controls.Add(this.ct);
             this.groupBox1.Font = new System.Drawing.Font("Cambria", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(62, 91);
+            this.groupBox1.Location = new System.Drawing.Point(62, 63);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(318, 294);
+            this.groupBox1.Size = new System.Drawing.Size(318, 322);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "脑电波形图";
@@ -163,14 +164,14 @@
             this.groupBox5.Font = new System.Drawing.Font("Cambria", 10.5F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(62, 12);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(318, 73);
+            this.groupBox5.Size = new System.Drawing.Size(318, 45);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "控制";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(115, 23);
+            this.button1.Location = new System.Drawing.Point(114, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 23);
             this.button1.TabIndex = 0;
