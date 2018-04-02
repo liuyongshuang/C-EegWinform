@@ -18,19 +18,22 @@ namespace chart的使用
         static string str = "";
         static int count = 0;
         static int t = 1;
-        static int[] data1 = new int[100];
-        static double[] data2 = new double[100];
+        static int[] data1 = new int[10];
+        static double[] data2 = new double[10];
         List<int> txData3 = new List<int>() { 3 };
-        List<int> tyData3 = new List<int>() { 7 }; 
+        List<int> tyData3 = new List<int>() { 7 };
+        # region 打开csv文件
         static string fileName = @"C:\Users\ASUS\Desktop\csvtest.csv";
         static FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None);
-        static StreamReader sr = new StreamReader(fs, System.Text.Encoding.GetEncoding(936));     
+        static StreamReader sr = new StreamReader(fs, System.Text.Encoding.GetEncoding(936));
+        # endregion
         public Form3()
         {
             InitializeComponent();                       
         }
         public void readFile()
-        {            
+        {
+            # region 读文件内容
             while (str != null)
             {                            
                 str = sr.ReadLine();//读取一行  
@@ -42,42 +45,44 @@ namespace chart的使用
 
                 String[] eachLine = new String[2];//因为知道每一行excel有2个单元格，所以string[2]  
                 eachLine = str.Split(',');//因为.csv文件是以逗号分隔单元格里数据的，所以调用分隔函数split             
-                if(int.Parse(eachLine[0])!=1)
-                {
-                    while(t!=int.Parse(eachLine[0]))
-                    {
-                        data1[count] = count;
-                        data2[count] = 0;
-                        t++;
-                        count++;
-                    }
-                }              
+                //if(int.Parse(eachLine[0])!=1)
+                //{
+                //    while(t!=int.Parse(eachLine[0]))
+                //    {
+                //        data1[count] = count;
+                //        data2[count] = 0;
+                //        t++;
+                //        count++;
+                //    }
+                //}              
                 data1[count] = int.Parse(eachLine[0]);
                 data2[count] = double.Parse(eachLine[1]);
                 count++;
-                if (count == 10)
-                {
-                    count = 0;
-                    break;
-                }
-                
-            }          
+                //if (count == 10)
+                //{
+                //    count = 0;
+                //    break;
+                //}               
+            } 
+            # endregion
         }
         public  void drawChart()
         {
-            while(true)
-            {
+            # region 将文件内容添加到曲线上
+            //while (true)
+            //{
                 readFile();
-                ct.Series[0].Points.DataBindXY(data1, data2); //添加数据            
-                //ct.Series[1].Points.DataBindXY(txData3, tyData3);
-                Thread.Sleep(1000);
-                if(flag == 1)
-                {
-                    sr.Close();//关闭读流的对象
-                    break;
-                }             
-            }
-                  
+                ct.Series[0].Points.DataBindXY(data1,data2); //添加数据            
+                //ct.Series[1].Points.DataBindXY(txData3, tyData3);                
+                //ct.Series[0].Points.Clear();               
+                //if(flag == 1)
+                //{
+                //    sr.Close();//关闭读流的对象
+                //    break;
+                //}
+            //}
+            # endregion
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
